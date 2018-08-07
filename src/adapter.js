@@ -96,7 +96,7 @@ function validateOptionsConstraints(optionsConstraints) {
  * An adapter for Slack's interactive message components such as buttons, menus, and dialogs.
  * @typicalname slackInteractions
  */
-class SlackMessageAdapter {
+export class SlackMessageAdapter {
   /**
    * Create a message adapter.
    *
@@ -415,7 +415,7 @@ class SlackMessageAdapter {
       // if the action constraint is specified, only continue if it matches
       if (constraints.handlerType === 'action') {
         // a payload that represents an action either has actions or submission defined
-        if (!(payload.actions || payload.submission)) {
+        if (!(payload.actions || payload.submission || payload.message)) {
           return false;
         }
 
